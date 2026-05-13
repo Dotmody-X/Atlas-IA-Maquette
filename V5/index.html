@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>5. Atlas-IA - Bento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- CURSEUR PERSONNALISÉ -->
+<div id="cursor">
+  <div id="cursor-dot"></div>
+  <div id="cursor-coord">0.000</div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-mark"></span>
+      Atlas-IA
+    </a>
+    <nav class="nav-links">
+      <a href="#product">Produit</a>
+      <a href="#agents">Agents</a>
+      <a href="#workflow">Méthode</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn-nav outline">Devis gratuit</a>
+      <a href="#pricing" class="btn-nav solid">Formules <i class="fa-solid fa-arrow-right" style="font-size:9px"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top">
+    <div class="hero-eyebrow">IA locale · installée chez vous · Bruxelles · 2026</div>
+    <h1 class="hero-h1">
+      Votre IA.<br/>
+      <span class="outline">Dans vos</span> <span class="blue">locaux.</span><br/>
+      <span class="outline">Sous votre contrôle.</span>
+    </h1>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-left">
+      <p class="hero-sub">Un assistant IA installé chez vous, disponible 24h/24 — qui apprend votre entreprise et libère votre équipe des tâches chronophages.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-blue">Obtenir un devis <i class="fa-solid fa-arrow-right" style="font-size:10px"></i></a>
+        <a href="#pricing" class="btn-white">Voir les formules</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-val">24/7</div><div class="hstat-lbl">Disponibilité</div></div>
+        <div class="hstat"><div class="hstat-val">0 €</div><div class="hstat-lbl">Cloud requis</div></div>
+        <div class="hstat"><div class="hstat-val">48h</div><div class="hstat-lbl">Installation max</div></div>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="console">
+        <div class="console-header">
+          <div class="c-dots"><div class="c-dot"></div><div class="c-dot"></div><div class="c-dot"></div></div>
+          <div class="c-label">Atlas-IA · session 12.05.2026</div>
+        </div>
+        <div class="c-tabs">
+          <div class="c-tab on" onclick="sCP(0,this)">Manager</div>
+          <div class="c-tab" onclick="sCP(1,this)">Comptable</div>
+          <div class="c-tab" onclick="sCP(2,this)">Système</div>
+        </div>
+        <div class="cpanel on" id="cp0">
+          <div class="cl"><span class="cl-pr">&gt;</span><span class="cl-user">Résume les tâches urgentes du jour</span></div>
+          <div class="cl"><span class="cl-pr"></span><span class="cl-think">routing — 3 agents, 7 tâches analysées</span></div>
+          <div class="cl"><span class="cl-pr" style="color:rgba(255,255,255,.2)">↳</span><span class="cl-agent"><span class="cl-tool">comptable</span> devis Moreau €12k en attente</span></div>
+          <div class="cl"><span class="cl-pr" style="color:rgba(255,255,255,.2)">↳</span><span class="cl-agent"><span class="cl-tool">secrétaire</span> réunion équipe 14h · salle B</span></div>
+          <div class="cl"><span class="cl-pr" style="color:rgba(255,255,255,.2)">↳</span><span class="cl-agent"><span class="cl-tool">service client</span> 4 tickets ouverts</span></div>
+          <div class="cl"><span class="cl-pr" style="color:var(--blue)">?</span><span class="cl-user">Prioriser le devis ?<span class="cl-cursor"></span></span></div>
+          <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border-radius:6px;background:rgba(39,201,63,.1);color:#27c93f;border:1px solid rgba(39,201,63,.2)">Oui, priorité</span>
+            <span style="font-family:var(--mono);font-size:11px;padding:5px 12px;border-radius:6px;background:rgba(255,255,255,.04);color:var(--gray);border:1px solid rgba(255,255,255,.08)">Tickets d'abord</span>
+          </div>
+        </div>
+        <div class="cpanel" id="cp1">
+          <div class="mrow"><span class="mk">Factures ce mois</span><span class="mv">47 générées</span></div>
+          <div class="mrow"><span class="mk">Relances auto</span><span class="mv">3 envoyées</span></div>
+          <div class="mrow"><span class="mk">Rapport financier</span><span class="mv">Prêt — Mai 2026</span></div>
+          <div class="mrow"><span class="mk">Prochain paiement</span><span class="mv">15/05 · 8 400 €</span></div>
+          <div class="mrow"><span class="mk">Anomalies</span><span class="mv ok">Aucune</span></div>
+        </div>
+        <div class="cpanel" id="cp2">
+          <div class="mrow"><span class="mk">Uptime (30j)</span><span class="mv">99,8 %</span></div>
+          <div class="mrow"><span class="mk">Requêtes traitées</span><span class="mv">12 847</span></div>
+          <div class="mrow"><span class="mk">Temps de réponse</span><span class="mv">1,2 s moy.</span></div>
+          <div class="mrow"><span class="mk">Stockage</span><span class="mv">238 GB / 1 TB</span></div>
+          <div class="mrow"><span class="mk">Watchdog</span><span class="mv ok">Actif — 0 incidents</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="trust-inner">
+    <div class="ti badge"><i class="fa-solid fa-shield-halved"></i>Partenaire officiel — Claude Partner Network · Anthropic</div>
+    <div class="ti"><i class="fa-regular fa-clock"></i>Installation 24–48h</div>
+    <div class="ti"><i class="fa-solid fa-lock"></i>Données 100% locales</div>
+    <div class="ti"><i class="fa-solid fa-check"></i>Support 6 mois inclus</div>
+    <div class="ti"><i class="fa-solid fa-microchip"></i>Mistral · Llama 3 · Claude</div>
+  </div>
+</section>
+
+<!-- CAPABILITIES — BENTO -->
+<section id="product" style="padding:80px 0 0">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">01 — Pourquoi Atlas-IA</div>
+      <div class="sh-h2">Votre IA,<br/><span class="dim">pas celle d'un autre.</span></div>
+    </div>
+    <div class="sh-right">Les solutions cloud veulent vos données ou votre argent — souvent les deux. Atlas-IA installe le matériel chez vous. Vous possédez tout.</div>
+  </div>
+  <div class="bento reveal" style="transition-delay:.1s">
+    <!-- Row 1 -->
+    <div class="bc bc-black c5" style="min-height:280px">
+      <div class="bc-content">
+        <div class="bc-n">A · Confidentialité</div>
+        <div class="bc-title">Données 100%<br/>locales.</div>
+        <p class="bc-body">Le serveur est chez vous. Zéro donnée externe. L'IA tourne sans internet.</p>
+      </div>
+    </div>
+    <div class="bc bc-blue c4" style="min-height:280px">
+      <div class="bc-content">
+        <div class="bc-n">B · Coût</div>
+        <div class="bc-title">Un achat.<br/>Pas un abonnement.</div>
+        <p class="bc-body">Aucune facture mensuelle API. Un prix fixe, une fois.</p>
+      </div>
+    </div>
+    <div class="bc bc-lime c3" style="min-height:280px">
+      <div class="bc-content">
+        <div class="bc-n" style="color:rgba(0,0,0,.4)">C · Disponibilité</div>
+        <div class="bc-title" style="color:var(--black)">24/7 sans réseau.</div>
+        <p class="bc-body" style="color:rgba(0,0,0,.5)">Internet coupé ? Votre IA continue.</p>
+      </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="bc bc-purple c3" style="min-height:240px">
+      <div class="bc-content">
+        <div class="bc-n" style="color:rgba(11,11,10,.4)">D · Simplicité</div>
+        <div class="bc-title" style="color:var(--black)">On installe.<br/>Vous utilisez.</div>
+        <p class="bc-body" style="color:rgba(11,11,10,.5)">Installation, config, formation, maintenance. Tout inclus.</p>
+      </div>
+    </div>
+    <div class="bc bc-white c5" style="min-height:240px">
+      <div class="bc-content">
+        <div class="bc-n" style="color:rgba(11,11,10,.35)">E · Évolutivité</div>
+        <div class="bc-title" style="color:var(--black)">Ajoutez des agents<br/>à tout moment.</div>
+        <p class="bc-body" style="color:rgba(11,11,10,.5)">Chaque agent est un module indépendant. Grandissez à votre rythme.</p>
+      </div>
+    </div>
+    <div class="bc bc-black c4" style="min-height:240px;display:flex;align-items:flex-end;justify-content:flex-end;padding:28px">
+      <div style="text-align:right">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:12px">Partenaire officiel</div>
+        <div style="font-family:var(--sans);font-size:28px;font-weight:700;letter-spacing:-.04em;color:var(--blue)">Claude<br/>Partner Network</div>
+        <div style="font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">Anthropic · 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- WORKFLOW -->
+<section id="workflow" style="padding-bottom:0">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">02 — Méthode</div>
+      <div class="sh-h2">Zéro à opérationnel<br/><span class="dim">en 4 étapes.</span></div>
+    </div>
+    <div class="sh-right">De la consultation au premier "bonjour" de votre IA — en moins de 48 heures.</div>
+  </div>
+  <div class="wf-table reveal" style="transition-delay:.1s">
+    <div class="wf-col">
+      <div class="wf-big">01</div>
+      <div class="wf-n">Étape 01</div>
+      <div class="wf-title">On choisit ensemble</div>
+      <p class="wf-body">Audit gratuit. Formule, agents, hardware — configuration idéale pour votre activité.</p>
+      <div class="wf-chips"><span class="wchip">Audit</span><span class="wchip">Conseil</span><span class="wchip">Devis</span></div>
+    </div>
+    <div class="wf-col">
+      <div class="wf-big">02</div>
+      <div class="wf-n">Étape 02</div>
+      <div class="wf-title">On installe chez vous</div>
+      <p class="wf-body">Livraison et installation physique. Connexion à vos outils. Opérationnel en 24–48h.</p>
+      <div class="wf-chips"><span class="wchip">Installation</span><span class="wchip">Config</span></div>
+    </div>
+    <div class="wf-col">
+      <div class="wf-big">03</div>
+      <div class="wf-n">Étape 03</div>
+      <div class="wf-title">On forme votre équipe</div>
+      <p class="wf-body">2 à 4h de formation. Dashboard, agents, Jarvis app. Autonomes dès le premier jour.</p>
+      <div class="wf-chips"><span class="wchip">Formation</span><span class="wchip">Dashboard</span><span class="wchip">Jarvis</span></div>
+    </div>
+    <div class="wf-col">
+      <div class="wf-big">04</div>
+      <div class="wf-n">Étape 04</div>
+      <div class="wf-title">Votre IA travaille</div>
+      <p class="wf-body">24/7. Watchdog surveille en silence. Support prioritaire 6 mois inclus.</p>
+      <div class="wf-chips"><span class="wchip">24/7</span><span class="wchip">Watchdog</span><span class="wchip">6 mois</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- AGENTS -->
+<section id="agents" style="padding-bottom:0">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">03 — Agents</div>
+      <div class="sh-h2">Choisissez vos<br/><span class="dim">experts IA.</span></div>
+    </div>
+    <div class="sh-right">Chaque agent préconfiguré dans son domaine. Modules indépendants, ajoutables à tout moment.</div>
+  </div>
+  <div class="agents-grid reveal" style="transition-delay:.1s">
+    <!-- Manager -->
+    <div class="agent-card mgr">
+      <div class="mgr-l">
+        <div class="ac-n">Inclus — formules PME</div>
+        <div class="ac-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="ac-title">Agent Manager — Votre Jarvis</div>
+        <p class="ac-body" style="margin-top:10px">Orchestrateur central. Reçoit vos demandes vocales ou texte, route vers le bon agent, consolide les réponses et maintient la mémoire de votre entreprise.</p>
+      </div>
+      <div class="mgr-r">
+        <div class="nodes-label">Agents connectés</div>
+        <div class="node"><div class="nd on"></div><span class="nname">Agent Comptable</span><span class="nst on">Actif</span></div>
+        <div class="node"><div class="nd on"></div><span class="nname">Secrétaire / Agenda</span><span class="nst on">Actif</span></div>
+        <div class="node"><div class="nd"></div><span class="nname">Service Client</span><span class="nst idle">Attente</span></div>
+        <div class="node"><div class="nd"></div><span class="nname">Agent RH</span><span class="nst idle">Attente</span></div>
+        <div class="node"><div class="nd on"></div><span class="nname">Watchdog Système</span><span class="nst on">Actif</span></div>
+      </div>
+    </div>
+    <!-- Cards -->
+    <div class="agent-card">
+      <div class="ac-n">A · Finances</div>
+      <div class="ac-icon"><i class="fa-regular fa-file-invoice-dollar"></i></div>
+      <div class="ac-title">Agent Comptable</div>
+      <p class="ac-body">Factures, relances, rapports financiers, suivi des dépenses. Documents générés automatiquement.</p>
+      <div class="ac-price">À partir de 299 €</div>
+    </div>
+    <div class="agent-card">
+      <div class="ac-n">B · Organisation</div>
+      <div class="ac-icon"><i class="fa-regular fa-calendar-days"></i></div>
+      <div class="ac-title">Secrétaire / Agenda</div>
+      <p class="ac-body">Rendez-vous, emails, to-do list, rappels automatiques 24h/24.</p>
+      <div class="ac-price">À partir de 299 €</div>
+    </div>
+    <div class="agent-card">
+      <div class="ac-n">C · Relation client</div>
+      <div class="ac-icon"><i class="fa-solid fa-headset"></i></div>
+      <div class="ac-title">Service Client</div>
+      <p class="ac-body">Réponses automatiques, FAQ intelligente, escalade humaine si nécessaire.</p>
+      <div class="ac-price">À partir de 299 €</div>
+    </div>
+    <div class="agent-card">
+      <div class="ac-n">D · Droit</div>
+      <div class="ac-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+      <div class="ac-title">Agent Juridique</div>
+      <p class="ac-body">Veille légale, contrats simples, alertes réglementaires adaptées à votre secteur.</p>
+      <div class="ac-price">À partir de 349 €</div>
+    </div>
+    <div class="agent-card">
+      <div class="ac-n">E · RH</div>
+      <div class="ac-icon"><i class="fa-solid fa-users"></i></div>
+      <div class="ac-title">Agent RH</div>
+      <p class="ac-body">Tri CV, onboarding automatisé, suivi des congés, réponses aux collaborateurs.</p>
+      <div class="ac-price">À partir de 349 €</div>
+    </div>
+    <div class="agent-card">
+      <div class="ac-n">F · Analyse</div>
+      <div class="ac-icon"><i class="fa-solid fa-chart-bar"></i></div>
+      <div class="ac-title">Analyste Data</div>
+      <p class="ac-body">Rapports automatiques, dashboards, lecture CSV/Excel. Vos données en décisions.</p>
+      <div class="ac-price">À partir de 349 €</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="padding-bottom:0">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">04 — Retours clients</div>
+      <div class="sh-h2">Ils ont<br/><span class="dim">fait confiance.</span></div>
+    </div>
+    <div class="sh-right">Des entreprises belges et françaises qui ont repris le contrôle de leur IA.</div>
+  </div>
+  <div class="testi-bento reveal" style="transition-delay:.1s">
+    <div class="testi-main">
+      <div class="tq">"L'agent comptable a remplacé deux jours de saisie manuelle par semaine. En trois mois, l'investissement était amorti. Je ne reviendrais pas en arrière."</div>
+      <div class="ta-name">Marie Lefebvre</div>
+      <div class="ta-role">Directrice financière · Cabinet ML Conseil, Bruxelles</div>
+    </div>
+    <div class="testi-right">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:1">
+        <div class="tstat">
+          <div class="ts-n">Heures économisées / sem.</div>
+          <div class="ts-val">14h</div>
+          <div class="ts-desc">Cabinet 8 personnes · agent comptable + secrétaire</div>
+        </div>
+        <div class="tstat">
+          <div class="ts-n">Réduction temps de réponse</div>
+          <div class="ts-val">−92%</div>
+          <div class="ts-desc">De 18h à 4 minutes · service client e-commerce</div>
+        </div>
+      </div>
+      <div class="testi-smalls">
+        <div class="tsmall">
+          <div class="tsm-q">"Dans le médical, nos données doivent rester chez nous. Atlas-IA l'a parfaitement compris."</div>
+          <div class="tsm-a">Thomas Henrard · Clinique Henrard, Liège</div>
+        </div>
+        <div class="tsmall">
+          <div class="tsm-q">"Le service client tourne seul le soir et le week-end. De 18h à 4 minutes de réponse."</div>
+          <div class="tsm-a">Sophie Renard · BelShop E-commerce, Gand</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-bottom:0">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">05 — Tarifs</div>
+      <div class="sh-h2">Un achat unique.<br/><span class="dim">Une IA qui vous appartient.</span></div>
+    </div>
+    <div class="sh-right">Pas d'abonnement obligatoire. Pas de frais cachés. Hardware + installation + formation.</div>
+  </div>
+  <div class="pricing-toggle">
+    <span class="pt-opt on" id="pt-solo" onclick="setG('solo')">Solo</span>
+    <span class="pt-opt on" id="pt-pme" onclick="setG('pme')">PME</span>
+  </div>
+  <div class="pricing-grid reveal" id="pgrid" style="transition-delay:.1s"></div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+<div class="wrap">
+  <div class="sh reveal">
+    <div class="sh-left">
+      <div class="eyebrow">06 — Questions</div>
+      <div class="sh-h2">Ce que tout le monde<br/><span class="dim">veut savoir.</span></div>
+    </div>
+    <div class="sh-right">Les vraies réponses, sans jargon. Contact : <a href="mailto:contact@atlas-ia.net" style="color:var(--blue)">contact@atlas-ia.net</a></div>
+  </div>
+  <div class="faq-grid reveal" id="faq-grid" style="transition-delay:.1s"></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:80px 0">
+<div class="wrap">
+  <div class="cta-block reveal">
+    <div class="cta-left">
+      <div class="cta-eyebrow">Démarrer</div>
+      <div class="cta-title">Votre IA est prête.<br/>Vous aussi ?</div>
+      <p class="cta-sub">Audit gratuit. Proposition chiffrée sous 24h. Aucun engagement. Satisfait ou remboursé 30 jours.</p>
+      <div class="cta-points">
+        <div class="ctp"><i class="fa-solid fa-bolt"></i><div><span class="ctp-l">Réponse</span>Sous 24h ouvrables</div></div>
+        <div class="ctp"><i class="fa-solid fa-magnifying-glass"></i><div><span class="ctp-l">Audit</span>Gratuit et sans engagement</div></div>
+        <div class="ctp"><i class="fa-regular fa-handshake"></i><div><span class="ctp-l">Garantie</span>Satisfait ou remboursé 30 jours</div></div>
+      </div>
+    </div>
+    <div class="cta-right">
+      <div class="form-row">
+        <div><label class="form-label">Prénom</label><input class="form-input" type="text" placeholder="Marie"/></div>
+        <div><label class="form-label">Nom</label><input class="form-input" type="text" placeholder="Lefebvre"/></div>
+      </div>
+      <div><label class="form-label">Entreprise</label><input class="form-input" type="text" placeholder="Votre entreprise"/></div>
+      <div><label class="form-label">Email professionnel</label><input class="form-input" type="email" placeholder="marie@entreprise.be"/></div>
+      <div>
+        <label class="form-label">Taille de l'équipe</label>
+        <select class="form-input" style="background:rgba(255,255,255,.05);color:var(--white)">
+          <option>1 personne (indépendant)</option>
+          <option>2–10 personnes</option>
+          <option>11–50 personnes</option>
+          <option>51–200 personnes</option>
+          <option>200+ personnes</option>
+        </select>
+      </div>
+      <div><label class="form-label">Message</label><textarea class="form-input" rows="3" placeholder="Décrivez vos besoins..."></textarea></div>
+      <button class="form-submit" onclick="this.textContent='Message envoyé —';this.style.background='#27c93f';this.style.color='#000'">Recevoir un devis gratuit</button>
+      <div class="form-note">Réponse garantie sous 24h · Aucun démarchage</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="fc">
+      <div class="fc-logo">
+        <span style="width:22px;height:22px;border:1.5px solid var(--white);border-radius:5px;display:grid;place-items:center"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--white)"></span></span>
+        Atlas-IA
+      </div>
+      <p class="fc-tagline">L'intelligence artificielle locale pour les entreprises qui refusent de dépendre du cloud.</p>
+      <div class="fc-partner">Partenaire Claude Partner Network · Anthropic</div>
+    </div>
+    <div class="fc">
+      <h5>Produit</h5>
+      <ul>
+        <li><a href="#product">Pourquoi Atlas-IA</a></li>
+        <li><a href="#agents">Les agents</a></li>
+        <li><a href="#workflow">Méthode</a></li>
+        <li><a href="#pricing">Tarifs</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Entreprise</h5>
+      <ul>
+        <li><a href="#">À propos</a></li>
+        <li><a href="#">Partenariat Anthropic</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Légal</h5>
+      <ul>
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">CGV</a></li>
+        <li><a href="#">Confidentialité</a></li>
+        <li><a href="#">RGPD</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 Atlas-IA · Belgique · contact@atlas-ia.net</span>
+    <span>N 50°51′ E 004°21′ · Bruxelles</span>
+  </div>
+</footer>
+
+<script src="./scripts.js"></script>
+</body>
+</html>
